@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.licslan</groupId>
+    <artifactId>springcloudplay</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <!--注册中心模块 完成-->
+        <module>licslan-eureka</module>
+        <!--网关中心模块 TODO-->
+        <module>licslan-gateway</module>
+        <!--公共模块模块 TODO-->
+        <module>licslan-common</module>
+        <!--订单模块 TODO-->
+        <module>licslan-order</module>
+        <!--商品模块 TODO-->
+        <module>licslan-product</module>
+        <!--配置中心模块 TODO-->
+        <module>licslan-configcenter</module>
+        <!--暴露给第三放使用的api服务-->
+        <module>licslan-openapi</module>
+        <!--中间件服务-->
+        <module>licslan-middleware</module>
+        <!--权限管理服务-->
+        <module>licslan-rbac</module>
+        <!--实时计算服务（流式计算离线计算服务-->
+        <module>licslan-realtimecalculation</module>
+        <!--机器学习服务-->
+        <module>licslan-machinelearning-ai</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>licslanplayspringcloud</name>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+    </properties>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.31</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
