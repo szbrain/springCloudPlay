@@ -1,0 +1,38 @@
+server:
+  port: 8003
+  servlet:
+    context-path: /licslan/machinelearning/ai
+
+eureka:
+  client:
+    register-with-eureka: false #是否开启客户端
+    fetch-registry: false  #是否开启注册
+    service-url:
+      defaultZone: http://localhost:8003/licslan/register/eureka
+  instance:
+    hostname: localhost
+    lease-expiration-duration-in-seconds: 15 #表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance，该值默认为90秒。
+    lease-renewal-interval-in-seconds: 5 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒
+    prefer-ip-address: true
+    instance-id: localhost:${server.port}${server.servlet.context-path}
+
+
+
+#management:
+#  endpoint:
+#    health:
+#      show-details: always
+#    web:
+#      exposure:
+#        include: *
+
+spring:
+  application:
+    name: licslan-machinelearning-ai
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
